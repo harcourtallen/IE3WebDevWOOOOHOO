@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<title>Vikram's Ideas</title>
+<head>
+<style type="text/css">
+div
+{
+   
+   background-color:teal;
+   
+}
+</style>
+</head>
+<body>
+<div>Hi, This is Vikram Thanigaivelan</div>
+<div2>These are my ideas for websites:</div2>
+<ol>
+    <li>A really dope personal website that we can all customizie to fit our own profile</li>
+    <li>
+        A website similar to plan it purple but we allow any club that is registered to post their own event so all students can just check this website to find out what they are going to do that night
+    </li>
+    <li>
+        Live counter/statistic page on the amount of people who died from gun violence in the USA
+    </li>
+    <li>
+        Pick a random product and make an insane product page for it like in this picture <img src="https://cdnassets.mondovo.com/blog/wp-content/uploads/2018/02/image-16.png">
+    </li>
+    <li>
+        Make a website that displays the top 10 best movies of each decade and puts the ratings right next to the movie plus any awards
+    </li>
+</ol>
+</body>
+</html>
