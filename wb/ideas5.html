@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+<head> 
+    <title> Ideas </title>  
+    <link rel = "stylesheet" href = "./styles/styles.css">
+    <script async src="./javascript/index.js"></script> </head>
+    
+<body> 
+    <h1> Ideas </h1>
+    
+    
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="ideas1.html">Idea 1</a>
+        <a href="ideas2.html">Idea 2</a>
+        <a href="ideas3.html">Idea 3</a>
+        <a href="ideas4.html">Idea 4</a>
+        <a class="active" href="ideas5.html">Idea 5</a>
+      </div> 
+    <br>
+      <h2> CodeVision </h2>
+    
+    <button type="button" class="collapsible">Expand</button>
+    <div class="content">
+        <img src = "https://1.bp.blogspot.com/-gKWUcwIKWWU/VvPtKUAIFjI/AAAAAAAAFRc/WLCqWfSxlZ4ioocmBuFS3KaRhzs0I13OA/s640/Difference%2Bbetween%2Bstack%2Band%2Bheap%2Bmemory%2Bin%2BJava.gif">
+    </div> 
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        }
+        </script>
+
+        
+
+</body>
