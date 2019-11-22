@@ -1,0 +1,6 @@
+console.log("Hello World!")
+console.log("Schedule/CAESAR planner")
+console.log("Major/minor planner")
+console.log("NU survey system with rewards")
+console.log("NU book website")
+console.log("NU check-in system")
