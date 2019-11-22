@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+<head> 
+    <title> Ideas </title>  
+    <link rel = "stylesheet" href = "./styles/styles.css">
+    <script async src="./javascript/index.js"></script> </head>
+    
+<body> 
+    <h1> Ideas </h1>
+    
+    
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a class="active" href="ideas1.html">Idea 1</a>
+        <a href="ideas2.html">Idea 2</a>
+        <a href="ideas3.html">Idea 3</a>
+        <a href="ideas4.html">Idea 4</a>
+        <a href="ideas4.html">Idea 5</a>
+      </div> 
+    <br>
+      <h2> Smart buy </h2>
+    
+    <button type="button" class="collapsible">Expand</button>
+    <div class="content">
+        <img src = "https://www.investopedia.com/thmb/OH9GNL3rGvdkZ1_45LiS9uvKWIo=/680x0/filters:no_upscale():max_bytes(150000):strip_icc()/25-5bfc391246e0fb00511d75cb.jpg">
+    </div> 
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        }
+        </script>
+
+        
+
+</body>
