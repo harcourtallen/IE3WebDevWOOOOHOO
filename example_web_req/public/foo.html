@@ -1,38 +1,61 @@
 <!doctype html>
 <html>
 <title>Jason Liu</title>
+
 <head>
   <link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id"
+    content="996830251001-36gcnkevh6tg2biau8dhnk3m4154jtc2.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </head>
 
 <body>
-    <ul>
-      <li class="topbar"><a class = "active" href = "#home">Home</a></li>
-      <li class="topbar"><a class = "ieee" href="http://ieee.northwestern.edu" target="_blank">IEEE</a></li>
-    </ul>
+  <ul>
+    <li class="topbar"><a class="active" href="#home">Home</a></li>
+    <li class="topbar"><a class="ieee" href="http://ieee.northwestern.edu" target="_blank">IEEE</a></li>
+  </ul>
 
-    <button id="myBtn" title="Go to top">Top</button>
-    
-    <h1>Whatup!</h1>
-    <div style ="padding:30px 30px">
-        <img src="me.jpg" alt="My Face" style="transform:rotate(90deg);">
-        <p>
-          Hello! My name is Jason Liu and I'm an undergraduate student at Northwestern University.
-          I grew up in south side Chicago just a 10 minute walk from the White Sox stadium,
-           and am proud to be able to call it my hometown.
-          I'm majoring in computer engineering and computer science and will be graduating in 2020.
-        </p>
-        <br>
-        <p>
-          What is your name?
-          <button id="myPostButton" onclick="sendPost()">Post Button</button>
-          <button id="myGetButton" onclick="sendGet()">Get Button</button>
-        </p>
-    </div>
+  <button id="myBtn" title="Go to top">Top</button>
 
-    <script src="test.js"></script>
+  <h1>Whatup!</h1>
+  <div style="padding:30px 30px">
+    <img src="me.jpg" alt="My Face" style="transform:rotate(90deg);">
+    <p>
+      Hello! My name is Jason Liu and I'm an undergraduate student at Northwestern University.
+      I grew up in south side Chicago just a 10 minute walk from the White Sox stadium,
+      and am proud to be able to call it my hometown.
+      I'm majoring in computer engineering and computer science and will be graduating in 2020.
+    </p>
+    <br>
+    <p>
+      What is your name?
+      <button id="myPostButton" onclick="sendPost()">Post Button</button>
+      <button id="myGetButton" onclick="sendGet()">Get Button</button>
+    </p>
+  </div>
+  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+  <script src="test.js"></script>
+  <script>
+    function onSignIn(googleUser) {
+      // Useful data for your client-side scripts:
+      var profile = googleUser.getBasicProfile();
+      console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+      console.log('Full Name: ' + profile.getName());
+      console.log('Given Name: ' + profile.getGivenName());
+      console.log('Family Name: ' + profile.getFamilyName());
+      console.log("Image URL: " + profile.getImageUrl());
+      console.log("Email: " + profile.getEmail());
+
+      // The ID token you need to pass to your backend:
+      var id_token = googleUser.getAuthResponse().id_token;
+      console.log("ID Token: " + id_token);
+    }
+  </script>
 </body>
+
 </html>
