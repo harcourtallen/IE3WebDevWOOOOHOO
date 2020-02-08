@@ -17,3 +17,10 @@ const Cat = mongoose.model('Cat', { name: String });
 
 const kitty = new Cat({ name: 'Zildjian' });
 kitty.save().then(() => console.log('meow'));
+
+console.log("Testing.")
+
+// Cat.deleteMany({ name: 'Zildjian' }, (err) => {
+//     if(err) console.log(err);
+//     console.log("Successful deletion");
+// });

@@ -1,0 +1,48 @@
+Dates :
+    - date created/modified
+    - date of the actual event
+    * string (maybe json data)
+
+Identification:
+    - creator name & surname
+    - email (or other contact info)
+    * string (maybe json data)
+
+Images:
+    - links to background images
+    * string
+
+Locations:
+    - event location
+    * string
+
+Other info:
+    - group/club name
+    - description
+    * string
+
+Categories:
+    - tags
+    * array of strings
+
+Functionality:
+    * way to search by:
+        - name -- all events
+        - date -- closest 20 to the date
+        - tags -- 20
+        - group/club -- 20
+        - search for varying # of results
+            > first 20, 40, 60, etc. results
+
+    * delete by ID
+
+    * search one by ID
+
+    * create document event
+        - location
+        - name
+        - date
+        - description
+            * limited to 250 chars
+
+    * update event by ID
