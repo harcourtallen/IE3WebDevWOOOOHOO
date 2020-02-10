@@ -5,18 +5,90 @@ body {
 
 
 .heading {
-
-position: absolute;
-width: 372px;
-height: 118px;
-left: 105px;
-top: 27px;
-
+  position: absolute;
+  width: 372px;
+  height: 118px;
+  left: 105px;
+  top: 27px;
 }
 
 .add{
-position: absolute;
-width: 39px;
-height: 39px;
-left: 1250px;
-top: 183px;}
+  position: absolute;
+  width: 39px;
+  height: 39px;
+  left: 1220px;
+  top: 183px;
+}
+
+.sort-down{
+  position: absolute;
+  width: 39px;
+  height: 39px;
+  left: 1151px;
+  top: 183px;
+}
+
+.menu{
+  position: absolute;
+  width: 39px;
+  height: 38px;
+  left: 1299px;
+  top: 183px;
+}
+
+.signin{
+  position: absolute;
+  width: 210px;
+  height: 60px;
+  left: 1120px;
+  top: 32px;
+}
+
+.eventb{
+  position: absolute;
+  width: 400px;
+  height: 28px;
+  left: 340px;
+  top: 187px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: black;
+
+}
+
+.evcal{
+  position: absolute;
+  width: 642px;
+  height: 95px;
+  left: 514px;
+  top: 0px;
+
+  font-family: Rokkitt;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 82px;
+
+  color: #4E2A84;
+}
+
+.calendar{
+  position: absolute;
+  width: 65px;
+  height: 76px;
+  left: 112px;
+  top: 144px;
+}
+
+.line{
+  border: 1.5px solid black;
+  position:relative;
+  width: 90%;
+  top: 250px;
+  align: "center";
+}
