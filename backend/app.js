@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
-
+const user = require('./models/User.js').user;
 const url = require('url');
 const fs = require('fs');
 const file = JSON.parse(fs.readFileSync('./password.json', 'utf8'));
+
 
 
 const pass = encodeURI(file.password);
@@ -24,3 +25,12 @@ console.log("Testing.")
 //     if(err) console.log(err);
 //     console.log("Successful deletion");
 // });
+
+
+const Tom = new user({name: 'Tom', surname: 'Tommert', username: 'tom12',
+    email: 'tomtommert@northwestern.edu'});
+
+Tom.save(function (err) {
+    if (err) return handleError(err);
+    console.log("saved");
+  });
