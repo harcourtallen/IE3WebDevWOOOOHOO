@@ -18,42 +18,79 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 router.use((req, res, next) => {
-    console.log('Instruction recieved');
+    console.log(`Instruction recieved: ${req.method}`);
     next();
 });
 
-// const Tom = new user({name: 'Tom', surname: 'Tommert', username: 'tom12',
-//     email: 'tomtommert@northwestern.edu'});
-
 router.get('/', (req, res) => {
     res.json({message: 'Hello world!'});
-
-    // Tom.save().then(() => {
-    //     console.log("saved");
-    //  });
 });
 
-router.route('/user').post((req, res) => {
-    const user = new User();
-    user.username = req.body.username;
-    user.email = req.body.email
+// General functions
+router.route('/user')
+    .post((req, res) => {
+        const user = new User();
+        user.username = req.body.username;
+        user.email = req.body.email
 
-    user.save().then((err) => {
-        if (err)
-            res.send(err);
-        else
-            res.json({message: "User created!"});
-    }).catch((err) => {
-        console.log(err);
+        user.save().then((err) => {
+            if (err)
+                res.send(err);
+            else
+                res.json({message: "User created"});
+        }).catch((err) => {
+            console.log(err);
+        });
+    })
+    .get((req, res) => {
+        User.find((err, users) => {
+            if (err)
+                res.send(err);
+            else
+                res.json(users);
+        })
     });
-});
+
+// Functions by id
+router.route('/user/:user_id')
+    .get((req, res) => {
+        User.findById(req.params.user_id, (err, user) => {
+            if (err)
+                res.send(err);
+            else
+                res.json(user);
+        });
+    })
+    .put((req, res) => {
+        User.findById(req.params.user_id, (err, user) => {
+            if (err)
+                res.send(err);
+            else {
+                user.username = req.body.username;
+                user.email = req.body.email;
+            }
+
+            user.save((err) => {
+                if (err)
+                    res.send(err);
+                else
+                    res.json({ message: 'User updated' });
+            });
+
+        });
+    })
+    .delete((req, res) => {
+        User.deleteOne({
+            _id: req.params.user_id
+        }, (err, bear) => {
+            if (err)
+                res.send(err);
+            else
+                res.json({ message: 'User deleted' });
+        });
+    });
 
 app.use('/api', router);
 
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
-app.listen(port, () => console.log(`App listening on port ${port}!`))
-
-// Cat.deleteMany({ name: 'Zildjian' }, (err) => {
-//     if(err) console.log(err);
-//     console.log("Successful deletion");
-// });
+app.listen(port, () => console.log(`App listening on port ${port}!`));
