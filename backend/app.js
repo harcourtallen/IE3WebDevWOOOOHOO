@@ -26,6 +26,10 @@ router.get('/', (req, res) => {
     res.json({message: 'Hello world!'});
 });
 
+router.get('/api', (req, res) => {
+    res.redirect('/');
+});
+
 // General functions
 router.route('/user')
     .post((req, res) => {
