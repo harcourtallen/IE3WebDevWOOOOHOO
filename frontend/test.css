@@ -1,35 +1,88 @@
 #header {
   position: fixed;
   width: 100%;
-  height: 15%;
+  margin-left: 2%;
   background-color: white;
-
+  z-index: 2;
+  margin-top: 0;
+  top:0;
 
 }
 .heading{
-  width: 372px;
-  height: 118px;
-  position: relative;
+  width: 22%;
+  height: 120px;
+
 
 }
-#whiteSpace {
-  position: absolute;
-  width: 100%;
-  height: 25%;
-}
-.card{
-  
-  width: 100%;
-  height: 25%;
-  margin: 2px 2px 2px 2px;
-  align-items: center;
-}
-.card-picture{
+#section{
+  position: relative;
+  align-content: center;
+
+  top: 10%;
   max-width: 100%;
   max-height: 100%;
-  align-items: center;
+  text-align: center;
+  margin: 0, auto
+}
+.card{
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 25%;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+
+
+  margin-top: 5%;
+  margin-bottom: 8%;
+
+
+}
+
+.card-picture{
+
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 50%;
+  min-height: 50%;
 }
 .card-name{
-  position: absolute;
+  text-align: left;
+  align-content: left;
+
+  bottom: 30%;
+  left: 10%;
+
+
+  position: relative;
+
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  color: #FFFFFF;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  z-index: auto;
+
+}
+.date{
+  text-align: right;
+  align-content: right;
+
+  width: 30%;
+  bottom: 85%;
+  left: 60%;
+
+  position: relative;
+
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  color: #FFFFFF;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  z-index: auto;
 
 }
