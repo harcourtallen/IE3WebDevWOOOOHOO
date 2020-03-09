@@ -6,6 +6,7 @@ class Home extends Component {
         return (
             <div>
                 <Search />
+                <a href="/event">event</a>
             </div>
         );
     }
