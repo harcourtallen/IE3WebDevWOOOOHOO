@@ -16,6 +16,10 @@ const router = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    next();
+})
 
 router.use((req, res, next) => {
     console.log(`Instruction recieved: ${req.method}`);

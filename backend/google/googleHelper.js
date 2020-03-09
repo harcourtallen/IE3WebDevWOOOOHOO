@@ -15,7 +15,6 @@ const googleConfig = {
 };
 
 const createConnection = () => {
-    console.log(secrets.CLIENT_ID);
     return new google.auth.OAuth2(
         googleConfig.clientId,
         googleConfig.clientSecret,
