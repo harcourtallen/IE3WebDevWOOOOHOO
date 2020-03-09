@@ -1,17 +1,17 @@
 const { google } = require('googleapis');
 const fs = require('fs');
-const secrets = JSON.parse(fs.readFileSync('../password.json', 'utf8'));
+const secrets = JSON.parse(fs.readFileSync('./password.json', 'utf8'));
 
 const defaultScope = [
-  'https://www.googleapis.com/auth/userinfo.email',
-  'https://www.googleapis.com/auth/userinfo.profile',
+    'https://www.googleapis.com/auth/userinfo.email',
+    'https://www.googleapis.com/auth/userinfo.profile',
 ];
 
 const googleConfig = {
-  clientId: secrets.CLIENT_ID,
-  clientSecret: secrets.CLIENT_SECRET,
-  redirect: 'http://localhost:3000/callback',
-  grantType: 'urn:ietf:params:oauth:grant-type:device_code',
+    clientId: secrets.CLIENT_ID,
+    clientSecret: secrets.CLIENT_SECRET,
+    redirect: 'http://localhost:3000/callback',
+    grantType: 'urn:ietf:params:oauth:grant-type:device_code',
 };
 
 const createConnection = () => {
@@ -32,9 +32,9 @@ const getConnectionUrl = (auth) => {
 
 // Helper function combining two functions above
 const urlGoogle = () => {
-  const auth = createConnection();
-  const url = getConnectionUrl(auth);
-  return url;
+    const auth = createConnection();
+    const url = getConnectionUrl(auth);
+    return url;
 };
 
 const getTokenFromCode = async (code) => {
@@ -73,9 +73,9 @@ const getEmailFromId = async (token) => {
 };
 
 module.exports = {
-    createConnection:       createConnection,
-    getConnectionUrl:       getConnectionUrl,
-    urlGoogle:              urlGoogle,
-    getTokenFromCode:       getTokenFromCode,
-    getEmailFromId:         getEmailFromId,
+    createConnection: createConnection,
+    getConnectionUrl: getConnectionUrl,
+    urlGoogle: urlGoogle,
+    getTokenFromCode: getTokenFromCode,
+    getEmailFromId: getEmailFromId,
 };

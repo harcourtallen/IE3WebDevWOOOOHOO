@@ -3,6 +3,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
+const googleHelper = require('./google/googleHelper');
 
 const User = require('./models/User.js');
 
@@ -26,13 +27,15 @@ router.use((req, res, next) => {
     next();
 });
 
+/*
 router.get('/', (req, res) => {
-    res.json({message: 'Hello world!'});
+    res.json({ message: 'Hello world!' });
 });
 
 router.get('/api', (req, res) => {
     res.redirect('/');
-});
+});*/
+
 
 // General functions
 router.route('/user')
@@ -45,7 +48,7 @@ router.route('/user')
             if (err)
                 res.send(err);
             else
-                res.json({message: "User created"});
+                res.json({ message: "User created" });
         }).catch((err) => {
             console.log(err);
         });
@@ -98,7 +101,39 @@ router.route('/user/:user_id')
         });
     });
 
+const login_url = googleHelper.urlGoogle();
+
+app.get('/google', (req, res) => {
+    res.json({ url: login_url });
+});
+
+app.get('/callback', (req, res) => {
+    console.log(req.query);
+    googleHelper.getTokenFromCode(req.query.code).then((tokens) => {
+        console.log(tokens);
+        const encoded = Buffer.from(tokens.access_token).toString('base64');
+
+        // Could also set refresh token
+        console.log("redirecting authenticated");
+        res.cookie('token', encoded).redirect('/authenticated');
+    }).catch((err) => {
+        console.log(err);
+    });
+});
+
+app.get('/authenticated', (req, res) => {
+    console.log(req.cookies);
+    token = Buffer.from(req.cookies.token, 'base64');
+
+    googleHelper.getEmailFromId(token).then((data) => {
+        console.log("authenticated " + data.email);
+        res.send(`Hello ${data.name}!\nYour email is ${data.email}.`)
+    }).catch((err) => {
+        console.log(err);
+    });
+});
+
 app.use('/api', router);
 
-mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 app.listen(port, () => console.log(`App listening on port ${port}!`));
